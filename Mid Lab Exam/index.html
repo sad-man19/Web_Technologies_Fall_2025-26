@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const regData = [];
+        function nameValidation(){
+            const nameInput = document.getElementById("name").value;
+            if(nameInput == "" || !nameInput){
+                const nameErr = document.getElementById("nameErr"); 
+                nameErr.innerHTML = "Name cannot be Empty!";
+            }else if(nameInput.length<6 || nameInput.length>100){
+                const nameErr = document.getElementById("nameErr") ;
+                nameErr.innerHTML = "Name must be between 6 and 100 characters.";
+            }else{
+                const nameErr = document.getElementById("nameErr");
+                nameErr.innerHTML = "";
+                return true;
+            }
+        }
+
+        function emailValidation(){
+            const emailInput = document.getElementById("email").value;
+            if(emailInput.includes("@") && emailInput.endsWith(".com") || emailInput.endsWith(".edu")|| emailInput.endsWith(".bd")) {
+                const emailErr = document.getElementById("emailErr");
+                emailErr.innerHTML = "";
+                return true;
+            }else{
+                const emailErr = document.getElementById("emailErr");
+                emailErr.innerHTML = "Please enter a valid professional email address."
+            }
+        }
+
+        function companyValidation(){
+            const companyInput = document.getElementById("company").value;
+            if(companyInput == "" || !companyInput){
+                const companyErr = document.getElementById("companyErr");
+                companyErr.innerHTML = "";
+                return true;
+            }else if(companyInput.length>100){
+                const companyErr = document.getElementById("companyErr");
+                companyErr.innerHTML = "Maximum 100 characters. ";
+            }else{
+                const companyErr = document.getElementById("companyErr");
+                return true;
+            }
+        }
+
+        function attValidation(){
+            const attInput = document.querySelector('input[name="att"]:checked');
+            console.log(attInput);
+            if(attInput == "" || !attInput){
+                const attErr = document.getElementById("attErr");
+                attErr.innerHTML = "Please select your attendance type.";
+            }else{
+                const attErr = document.getElementById("attErr");
+                attErr.innerHTML = "";
+                return true;
+            }
+        }
+        function register(){
+            if(nameValidation() && emailValidation() && companyValidation() && attValidation()){
+                const newReg={
+                name:document.getElementById("name").value,
+                email:document.getElementById("email").value,
+                company:document.getElementById("company").value,
+                att:document.querySelector('input[name="att"]:checked')    };
+
+                regData.push(newReg);
+                console.log("Success");
+
+            }
+        }
+        function analytics(){
+            console.log("Data", regData);
+        }
+    </script>
+</head>
+<body>
+    <div class="heading">
+        <h1>Global Tech Connect</h1>
+        <h2>Event Registration</h2>
+    </div>
+    <div class="regArea">
+        
+            <label for="">Full Name<span class="req">*</span></label>
+            <input type="text" id="name" class="field" oninput="nameValidation()">
+            <p id="nameErr" class="valMsg"></p>
+
+            <label for="">E-mail<span class="req">*</span></label>
+            <input type="email" name="" id="email" class="field" oninput="emailValidation()">
+            <p id="emailErr" class="valMsg"></p>
+
+            <label for="">Company/Instituition</label>
+            <input type="text" name="" id="company" class="field" oninput="companyValidation()">
+            <p id="companyErr" class="valMsg"></p>
+
+            <label for="">Attendance Type<span class="req">*</span></label>
+            <input type="radio" name="att" value="Virtual">Virtual
+            <input type="radio" name="att" value="In-Person">In-Person
+            <p id="attErr" class="valMsg"></p>
+
+
+            <button onclick="register()">Register</button>
+        
+    </div>
+    <div class="analytics">
+        <button onclick="analytics()">Show Event Analytics</button>
+        <p id="analit"></p>
+    </div>
+</body>
+</html>

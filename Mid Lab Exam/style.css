@@ -1,0 +1,26 @@
+.req{
+    color: red;
+}
+.valMsg{
+    color: red;
+}
+.heading{
+    text-align: center;
+}
+.regArea{
+    background-color: antiquewhite;
+    width: 400px;
+    margin: auto;
+    padding: 15px;
+    border-radius: 15px;
+}
+.analytics{
+    background-color: azure;
+    width: 400px;
+    margin: auto;
+    padding: 15px;
+    border-radius: 15px;
+}
+.field{
+    border-radius: 5px;
+}

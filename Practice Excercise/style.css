@@ -1,0 +1,32 @@
+.req{
+    color: red;
+}
+.review-form{
+    background-color: skyblue;
+    max-width: 500px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    padding: 5px;
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    
+}
+
+label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+textarea, input{
+    border: none;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
