@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Sign Up</title>
+    <style>
+        h1{
+            margin: auto;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .container{
+            margin: auto;
+            max-width: 350px;
+            padding: 20px;
+            background-color: aliceblue;
+            border-radius: 20px;
+        }
+        .req{
+            color: red;
+        }
+        .valMsg{
+            font-size: 13px ;
+            color: red;
+        }
+    </style>
+    <script>
+        function nameVal(){
+            const nameInput = document.getElementById("name").value;
+            if(nameInput=="" || !nameInput){
+                const nameErr = document.getElementById("nameErr");
+                nameErr.innerHTML = "Name Cannot be empty!";
+            }else{
+                const nameErr = document.getElementById("nameErr");
+                nameErr.innerHTML = "";
+                return true;
+            }
+        }
+
+        function mailVal(){
+            const emailInput = document.getElementById("email").value;
+            if(emailInput == "" || !emailInput){
+                const emailErr = document.getElementById("emailErr");
+                emailErr.innerHTML = "Email address cannot be empty!";
+            }else if(emailInput.includes("@") && emailInput.includes(".com") || emailInput.includes(".edu") || emailInput.includes(".bd")){
+                const emailErr = document.getElementById("emailErr");
+                emailErr.innerHTML = "";
+                return true;
+            }else{
+                const emailErr = document.getElementById("emailErr");
+                emailErr.innerHTML = "Please Enter valid email Address";
+            }
+        }
+
+        function passVal(){
+            const passInput = document.getElementById("pass").value;
+            if(passInput.length<6){
+                const passError = document.getElementById("passError");
+                passError.innerHTML = "Password must be at least 6 characters.";
+            }else{
+                const passError = document.getElementById("passError");
+                passError.innerHTML = "";
+                return true;
+            }
+        }
+
+        function passCheck(){
+            const orgPass = document.getElementById("pass").value;
+            const conPass = document.getElementById("pass2").value;
+            if(orgPass == conPass){
+                const passNotMatch = document.getElementById("passNotMatch");
+                passNotMatch.innerHTML = "";
+                return true;
+            }else{
+                const passNotMatch = document.getElementById("passNotMatch");
+                passNotMatch.innerHTML = "Password not matched";
+            }
+        }
+
+        function phnVal(){
+            const phnInput = document.getElementById("phn").value;
+            if(isNaN(phnInput)){
+                const phnErr = document.getElementById("phnErr");
+                phnErr.innerHTML = "Phone number must contain only digits";
+            }else{
+                const phnErr = document.getElementById("phnErr");
+                phnErr.innerHTML = "";
+                return true;
+            }
+        }
+
+        function Submit(){
+            //console.log("Btn clicked");
+            if(nameVal() && mailVal() && passVal() && passCheck() && phnVal()){
+                console.log("Success!");
+            }else{
+                alert("Please provide valid info in all fields!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Student Portal Sign Up</h1>
+    <div class="container">
+        <form action="">
+            <label for="">Full Name <span class="req">*</span></label>
+            <input type="text" id="name" oninput="nameVal()">
+            <p id="nameErr" class="valMsg"></p><br>
+
+            <label for="">E-Mail <span class="req">*</span></label>
+            <input type="email" id="email" oninput="mailVal()">
+            <p id="emailErr" class="valMsg"></p><br>
+
+            <label for="">Password <span class="req">*</span></label>
+            <input type="password" id="pass" oninput="passVal()">
+            <p id="passError" class="valMsg"></p><br>
+
+            <label for="">Confirm Password <span class="req">*</span></label>
+            <input type="password" id="pass2" oninput="passCheck()">
+            <p id="passNotMatch" class="valMsg"></p><br>
+
+            <label for="">Phone Number <span class="req">*</span></label>
+            <input type="text" id="phn" oninput="phnVal()">
+            <p id="phnErr" class="valMsg"></p><br>
+            <button onclick="Submit()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

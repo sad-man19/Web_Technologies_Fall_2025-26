@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Admssion Form</title>
+</head>
+<body>
+    <h2>University Admission Form</h2>
+    <form>
+        <fieldset>
+            <legend>Personal Details</legend>
+
+            <label>First Name</label>
+            <input type="text" required><br><br>
+            <label for="">Last name</label>
+            <input type="text" required><br><br>
+            <Label>Gender</Label>
+            <input type="radio">Male
+            <input type="radio">Female <br><br>
+            <label for="">DOB</label>
+            <input type="date" required><br><br>
+            <label for="">E-mail</label>
+            <input type="email" required> <br><br>
+            <label for="">Interests</label>
+            <input type="checkbox" name="Art" id="Art">
+            <label for="Art">Art</label>
+            <input type="checkbox" name="photography" id="photography">
+            <label for="photography">Photography</label>
+            <input type="checkbox" name="Writing" id="Writing">
+            <label for="Writing">Writing</label>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Academic Details</legend>
+
+            <label for="">College name</label>
+            <input type="text" required> <br><br>
+            <label for="">HSC result</label>
+            <input type="text" maxlength="4" required> <br><br>
+            <label for="">School name</label>
+            <input type="text" required><br><br>
+            <label for="">SSC result</label>
+            <input type="text" maxlength="4" required><br><br>
+            <label for="">Choose a Course</label>
+            <select name="" id="" required>
+                <option value="" selected disabled>Select</option>
+                <option value="">CSE</option>
+                <option value="">BBA</option>
+                <option value="">EEE</option>
+                <option value="">IPE</option>
+            </select>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Attachments</legend>
+
+            <label for="">HSC certificate </label>
+            <input type="file" name="" id="" required><br><br>
+            <label for="">HSC Transcript </label>
+            <input type="file" name="" id="" required><br><br>
+            <label for="">SSC certificate </label>
+            <input type="file" name="" id="" required><br><br>
+            <label for="">SSC Transcript </label>
+            <input type="file" name="" id="" required>
+        </fieldset>
+        <input type="submit" name="" id="">
+    </form>
+</body>
+</html>

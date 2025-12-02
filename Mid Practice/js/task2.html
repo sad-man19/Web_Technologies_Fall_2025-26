@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: auto;
+            max-width: 350px;
+            padding: 20px;
+            background-color: aliceblue;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="myImg" alt="Image" style="width: 300px; height: auto;">
+        <button onclick="prev()">Prev.</button>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <script>
+        const arr = [
+            "https://t3.ftcdn.net/jpg/00/08/32/40/360_F_8324055_J8YWcsAXEq2NrHWzFNeHVL9fYSDp9hkI.jpg",
+            "https://media.istockphoto.com/id/106576216/photo/crash-test-dummies.jpg?s=612x612&w=0&k=20&c=HJa85nBlzKCeW0NbBlhiETawBZdjqCpJTT4HyoCd1bE=",
+            "https://thumbs.dreamstime.com/b/car-crash-test-dummy-group-dummies-38808529.jpg",
+            "https://media.istockphoto.com/id/157192999/photo/high-tech-crash-test-dummy-ready-for-testing.jpg?s=612x612&w=0&k=20&c=vT1bsrNWr-gEOdSJb56P8f5ZkzMz5j7DTILCKsJHQwk=",
+            "https://media.gettyimages.com/id/171579463/photo/portrait-model.jpg?s=612x612&w=0&k=20&c=hOeHhRZ-b4Zq66WzRun-n08o7QpkuZQdsbGhkPvWHxk=",
+            "https://t4.ftcdn.net/jpg/06/20/59/69/360_F_620596978_NQCXEQGHnwJa2jLBq1RZUgc2tZgjm7iA.jpg"
+        ];
+        let index = 0;
+        function showImg(){
+            document.getElementById("myImg").src = arr[index];
+        }
+        setInterval(next, 3000);
+
+        function next(){
+            index = (index+1)% arr.length;
+            showImg();
+        }
+
+        function prev(){
+            index = (index-1+arr.length)% arr.length;
+            showImg();
+        }
+        window.onload = showImg;
+    </script>
+</body>
+</html>

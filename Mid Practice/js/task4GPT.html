@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+
+    <script>
+        function addStudent() {
+
+            // Get input values
+            let name = document.getElementById("name").value;
+            let roll = document.getElementById("roll").value;
+            let dept = document.getElementById("dept").value;
+            let error = document.getElementById("error");
+
+            // Simple validation
+            if (name === "" || roll === "" || dept === "") {
+                error.textContent = "All fields must be filled!";
+                return;
+            } else {
+                error.textContent = "";
+            }
+
+            // Create a new row
+            let table = document.getElementById("studentTable");
+            let row = document.createElement("tr");
+
+            // Create cells
+            let nameCell = document.createElement("td");
+            nameCell.textContent = name;
+
+            let rollCell = document.createElement("td");
+            rollCell.textContent = roll;
+
+            let deptCell = document.createElement("td");
+            deptCell.textContent = dept;
+
+            // Create delete button cell
+            let actionCell = document.createElement("td");
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+
+            // On delete button click → remove row
+            deleteBtn.onclick = function () {
+                row.remove();
+            };
+
+            actionCell.appendChild(deleteBtn);
+
+            // Add all cells to row
+            row.appendChild(nameCell);
+            row.appendChild(rollCell);
+            row.appendChild(deptCell);
+            row.appendChild(actionCell);
+
+            // Add row to table
+            table.appendChild(row);
+
+            // Clear inputs
+            document.getElementById("name").value = "";
+            document.getElementById("roll").value = "";
+            document.getElementById("dept").value = "";
+        }
+    </script>
+
+</head>
+<body>
+
+    <h2>Student Management System</h2>
+
+    <label>Name:</label>
+    <input id="name"><br><br>
+
+    <label>Roll:</label>
+    <input id="roll"><br><br>
+
+    <label>Department:</label>
+    <input id="dept"><br><br>
+
+    <p id="error" style="color:red;"></p>
+
+    <button onclick="addStudent()">Add Student</button>
+
+    <br><br>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+        <tbody id="studentTable"></tbody>
+    </table>
+
+</body>
+</html>
